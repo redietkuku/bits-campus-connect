@@ -10,7 +10,7 @@ const FeatureCards = () => {
       icon: Users,
       title: "Club Directory",
       description: "Browse and discover student clubs with detailed information, contact details, and member counts.",
-      color: "blue",
+      color: "primary",
       link: "/clubs",
       stats: "50+ Active Clubs"
     },
@@ -42,11 +42,11 @@ const FeatureCards = () => {
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      blue: {
-        bg: "bg-blue-50",
-        icon: "text-blue-600",
-        button: "bg-blue-600 hover:bg-blue-700",
-        border: "border-blue-200"
+      primary: {
+        bg: "bg-brand-primary/10",
+        icon: "text-brand-primary",
+        button: "bg-brand-primary hover:bg-brand-primary/90",
+        border: "border-brand-primary/20"
       },
       green: {
         bg: "bg-green-50",
@@ -73,8 +73,8 @@ const FeatureCards = () => {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">Everything You Need</h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold text-brand-text mb-4">Everything You Need</h2>
+        <p className="text-xl text-brand-text/70 max-w-2xl mx-auto">
           Comprehensive tools to enhance your campus experience and stay connected with the BITS community.
         </p>
       </div>
@@ -93,9 +93,9 @@ const FeatureCards = () => {
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Icon className={`h-8 w-8 ${colors.icon}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{feature.description}</p>
-                <div className="text-sm font-medium text-gray-500 mb-4">{feature.stats}</div>
+                <h3 className="text-xl font-semibold text-brand-text mb-3">{feature.title}</h3>
+                <p className="text-brand-text/70 mb-4 text-sm leading-relaxed">{feature.description}</p>
+                <div className="text-sm font-medium text-brand-text/60 mb-4">{feature.stats}</div>
                 <Link to={feature.link}>
                   <Button 
                     className={`w-full ${colors.button} text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg`}

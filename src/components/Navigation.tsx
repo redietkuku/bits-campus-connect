@@ -24,10 +24,10 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">BE</span>
               </div>
-              <span className="font-bold text-xl text-gray-900">BITS Engage</span>
+              <span className="font-bold text-xl text-brand-text">BITS Engage</span>
             </Link>
           </div>
 
@@ -41,8 +41,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive(item.path)
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      ? "text-brand-primary bg-brand-primary/10"
+                      : "text-brand-text hover:text-brand-primary hover:bg-gray-50"
                   }`}
                 >
                   {Icon && <Icon className="h-4 w-4" />}
@@ -58,7 +58,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700"
+              className="text-brand-text"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -78,8 +78,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                       isActive(item.path)
-                        ? "text-blue-600 bg-blue-100"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-white"
+                        ? "text-brand-primary bg-brand-primary/10"
+                        : "text-brand-text hover:text-brand-primary hover:bg-white"
                     }`}
                   >
                     {Icon && <Icon className="h-5 w-5" />}

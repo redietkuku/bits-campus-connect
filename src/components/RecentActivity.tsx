@@ -51,7 +51,7 @@ const RecentActivity = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "happening": return "bg-green-100 text-green-800";
-      case "active": return "bg-blue-100 text-blue-800";
+      case "active": return "bg-brand-primary/10 text-brand-primary";
       case "featured": return "bg-purple-100 text-purple-800";
       case "important": return "bg-red-100 text-red-800";
       default: return "bg-gray-100 text-gray-800";
@@ -61,8 +61,8 @@ const RecentActivity = () => {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto bg-white">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Recent Activity</h2>
-        <p className="text-lg text-gray-600">Stay updated with the latest happenings on campus</p>
+        <h2 className="text-3xl font-bold text-brand-text mb-4">Recent Activity</h2>
+        <p className="text-lg text-brand-text/70">Stay updated with the latest happenings on campus</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -70,23 +70,23 @@ const RecentActivity = () => {
           const Icon = getIcon(activity.type);
           
           return (
-            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
+            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-brand-primary">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-brand-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon className="h-6 w-6 text-brand-primary" />
                 </div>
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-gray-900 truncate">{activity.title}</h3>
+                    <h3 className="text-lg font-semibold text-brand-text truncate">{activity.title}</h3>
                     <Badge className={getStatusColor(activity.status)}>
                       {activity.status}
                     </Badge>
                   </div>
                   
-                  <p className="text-gray-600 mb-3 text-sm">{activity.description}</p>
+                  <p className="text-brand-text/70 mb-3 text-sm">{activity.description}</p>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-sm text-brand-text/60">
                     <div className="flex items-center space-x-1">
                       <Clock className="h-4 w-4" />
                       <span>{activity.time}</span>

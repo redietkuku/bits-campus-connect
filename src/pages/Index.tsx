@@ -10,7 +10,7 @@ import RecentActivity from "@/components/RecentActivity";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-brand-primary/10">
       <Navigation />
       <HeroSection />
       <FeatureCards />
@@ -19,18 +19,18 @@ const Index = () => {
       {/* Quick Actions Section */}
       <section className="py-16 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Quick Actions</h2>
-          <p className="text-lg text-gray-600">Get started with BITS Engage</p>
+          <h2 className="text-3xl font-bold text-brand-text mb-4">Quick Actions</h2>
+          <p className="text-lg text-brand-text/70">Get started with BITS Engage</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link to="/clubs">
-            <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 border-l-blue-500">
+            <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 border-l-brand-primary">
               <div className="flex items-center space-x-3">
-                <Users className="h-8 w-8 text-blue-600" />
+                <Users className="h-8 w-8 text-brand-primary" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">Find Clubs</h3>
-                  <p className="text-sm text-gray-600">Discover new interests</p>
+                  <h3 className="font-semibold text-brand-text">Find Clubs</h3>
+                  <p className="text-sm text-brand-text/70">Discover new interests</p>
                 </div>
               </div>
             </Card>
@@ -41,8 +41,8 @@ const Index = () => {
               <div className="flex items-center space-x-3">
                 <Calendar className="h-8 w-8 text-green-600" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">View Events</h3>
-                  <p className="text-sm text-gray-600">See what's happening</p>
+                  <h3 className="font-semibold text-brand-text">View Events</h3>
+                  <p className="text-sm text-brand-text/70">See what's happening</p>
                 </div>
               </div>
             </Card>
@@ -53,8 +53,8 @@ const Index = () => {
               <div className="flex items-center space-x-3">
                 <FileText className="h-8 w-8 text-purple-600" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">Read Stories</h3>
-                  <p className="text-sm text-gray-600">Student content</p>
+                  <h3 className="font-semibold text-brand-text">Read Stories</h3>
+                  <p className="text-sm text-brand-text/70">Student content</p>
                 </div>
               </div>
             </Card>
@@ -64,8 +64,8 @@ const Index = () => {
             <div className="flex items-center space-x-3">
               <Plus className="h-8 w-8 text-orange-600" />
               <div>
-                <h3 className="font-semibold text-gray-900">Submit Content</h3>
-                <p className="text-sm text-gray-600">Share your story</p>
+                <h3 className="font-semibold text-brand-text">Submit Content</h3>
+                <p className="text-sm text-brand-text/70">Share your story</p>
               </div>
             </div>
           </Card>
