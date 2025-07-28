@@ -11,7 +11,9 @@ const Clubs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [joinedClubs, setJoinedClubs] = useState<string[]>([]);
-const [joinMessage, setJoinMessage] = useState<string | null>(null);
+  const [joinMessage, setJoinMessage] = useState<string | null>(null);
+  const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
+
 
 
   const categories = ["All", "Technology", "Arts", "Sports", "Academic", "Social"];
@@ -81,16 +83,23 @@ const [joinMessage, setJoinMessage] = useState<string | null>(null);
   });
 
   const handleJoinClub = (clubName: string) => {
-    if (!joinedClubs.includes(clubName)) {
+    const confirmed = window.confirm(`Do you want to join ${clubName}?`);
+    if (confirmed && !joinedClubs.includes(clubName)) {
       setJoinedClubs([...joinedClubs, clubName]);
-      setJoinMessage(`You are now a member of ${clubName}!`);
-      setTimeout(() => setJoinMessage(null), 3000); // auto-dismiss
+      setAlert({ message: `You are now a member of ${clubName}!`, type: "success" });
+      setTimeout(() => setAlert(null), 3000);
     }
   };
   
   const handleLeaveClub = (clubName: string) => {
-    setJoinedClubs(joinedClubs.filter(name => name !== clubName));
+    const confirmed = window.confirm(`Are you sure you want to leave ${clubName}?`);
+    if (confirmed) {
+      setJoinedClubs(joinedClubs.filter(name => name !== clubName));
+      setAlert({ message: `You have successfully left ${clubName}.`, type: "error" });
+      setTimeout(() => setAlert(null), 3000);
+    }
   };
+  
   
 
   return (
@@ -143,6 +152,17 @@ const [joinMessage, setJoinMessage] = useState<string | null>(null);
             Showing {filteredClubs.length} of {clubs.length} clubs
           </p>
         </div>
+
+        {alert && (
+  <div
+    className={`text-center py-3 px-4 mb-4 rounded-md font-medium transition-all duration-300 ${
+      alert.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+    }`}
+  >
+    {alert.message}
+  </div>
+)}
+
 
         {/* Clubs Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -203,12 +223,6 @@ const [joinMessage, setJoinMessage] = useState<string | null>(null);
             </Card>
           ))}
         </div>
-
-        {joinMessage && (
-  <div className="text-center py-4">
-    <p className="text-green-600 font-medium">{joinMessage}</p>
-  </div>
-)}
 
 
         {filteredClubs.length === 0 && (
