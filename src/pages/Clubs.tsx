@@ -10,6 +10,9 @@ import Navigation from "@/components/Navigation";
 const Clubs = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [joinedClubs, setJoinedClubs] = useState<string[]>([]);
+const [joinMessage, setJoinMessage] = useState<string | null>(null);
+
 
   const categories = ["All", "Technology", "Arts", "Sports", "Academic", "Social"];
 
@@ -76,6 +79,19 @@ const Clubs = () => {
     const matchesCategory = selectedCategory === "All" || club.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  const handleJoinClub = (clubName: string) => {
+    if (!joinedClubs.includes(clubName)) {
+      setJoinedClubs([...joinedClubs, clubName]);
+      setJoinMessage(`You are now a member of ${clubName}!`);
+      setTimeout(() => setJoinMessage(null), 3000); // auto-dismiss
+    }
+  };
+  
+  const handleLeaveClub = (clubName: string) => {
+    setJoinedClubs(joinedClubs.filter(name => name !== clubName));
+  };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -163,17 +179,37 @@ const Clubs = () => {
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button className="flex-1 bg-blue-600 hover:bg-blue-700">
-                    Join Club
-                  </Button>
-                  <Button variant="outline" className="flex-1">
-                    Learn More
-                  </Button>
-                </div>
+  {joinedClubs.includes(club.name) ? (
+    <Button 
+      className="flex-1 bg-gray-600 hover:bg-red-600"
+      onClick={() => handleLeaveClub(club.name)}
+    >
+      Leave Club
+    </Button>
+  ) : (
+    <Button 
+      className="flex-1 bg-blue-600 hover:bg-blue-700"
+      onClick={() => handleJoinClub(club.name)}
+    >
+      Join Club
+    </Button>
+  )}
+  <Button variant="outline" className="flex-1">
+    Learn More
+  </Button>
+</div>
+
               </div>
             </Card>
           ))}
         </div>
+
+        {joinMessage && (
+  <div className="text-center py-4">
+    <p className="text-green-600 font-medium">{joinMessage}</p>
+  </div>
+)}
+
 
         {filteredClubs.length === 0 && (
           <div className="text-center py-12">
