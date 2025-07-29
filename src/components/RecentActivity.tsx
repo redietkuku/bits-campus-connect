@@ -34,7 +34,7 @@ const RecentActivity = () => {
       title: "Semester Break Schedule",
       description: "Important dates and campus facility timings",
       time: "2 days ago",
-      participants: 1240,
+      participants: 124,
       status: "important"
     }
   ];

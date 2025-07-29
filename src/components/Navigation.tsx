@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: "Events", path: "/events", icon: Calendar },
     { name: "Content", path: "/content", icon: FileText },
     { name: "Announcements", path: "/announcements", icon: Megaphone },
-    { name: "Login/Register", path: "/login", icon: null },
+    { name: "Login", path: "/login", icon: null },
   ];
 
   const isActive = (path: string) => location.pathname === path;

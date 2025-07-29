@@ -22,14 +22,17 @@ const LoginRegister: React.FC = () => {
   const handleStudentLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
+  
     if (!validateEmail(studentLogin.email)) {
       setLoginError("Please enter a valid email address.");
       return;
     }
+  
     if (!studentLogin.password || studentLogin.password.length < 8) {
       setLoginError("Password must be at least 8 characters.");
       return;
     }
+  
     // Accept only the provided credentials
     if (
       studentLogin.email === "rediet.atsede@bitscollege.edu.et" &&
@@ -37,21 +40,11 @@ const LoginRegister: React.FC = () => {
     ) {
       navigate("/");
       return;
-    } else {
-      setLoginError("Invalid email or password.");
-      return;
     }
-
-    if (
-      adminLogin.name === "admin" &&
-      adminLogin.password === "admin123"
-    ) {
-      navigate("/");
-      return;
-    } else {
-      setAdminError("Invalid name or password.");
-    }
+  
+    setLoginError("Invalid email or password.");
   };
+  
 
   const handleStudentRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -122,7 +115,7 @@ const LoginRegister: React.FC = () => {
                 <form onSubmit={handleStudentLogin} className="space-y-4">
                   <div>
                     <Label htmlFor="student-login-email">BITS Email</Label>
-                    <Input id="student-login-email" type="email" required value={studentLogin.email} onChange={e => setStudentLogin({ ...studentLogin, email: e.target.value })} placeholder="e.g. f20201234@pilani.bits-pilani.ac.in" />
+                    <Input id="student-login-email" type="email" required value={studentLogin.email} onChange={e => setStudentLogin({ ...studentLogin, email: e.target.value })} placeholder="e.g. abebe.kebede@bitscollege.edu.et" />
                   </div>
                   <div>
                     <Label htmlFor="student-login-password">Password</Label>
@@ -137,7 +130,7 @@ const LoginRegister: React.FC = () => {
                     onClick={() => { setView("register"); setLoginError(""); }}
                     type="button"
                   >
-                    Don't have an account?
+                    Don't have an account? Register
                   </button>
                 </div>
                 <div className="mt-6 flex justify-center">
@@ -161,7 +154,7 @@ const LoginRegister: React.FC = () => {
                   </div>
                   <div>
                     <Label htmlFor="student-register-email">BITS Email</Label>
-                    <Input id="student-register-email" type="email" required value={studentRegister.email} onChange={e => setStudentRegister({ ...studentRegister, email: e.target.value })} placeholder="e.g. f20201234@pilani.bits-pilani.ac.in" />
+                    <Input id="student-register-email" type="email" required value={studentRegister.email} onChange={e => setStudentRegister({ ...studentRegister, email: e.target.value })} placeholder="e.g. abebe.kebede@bitscollege.edu.et" />
                   </div>
                   <div>
                     <Label htmlFor="student-register-password">Password</Label>
@@ -180,7 +173,7 @@ const LoginRegister: React.FC = () => {
                     onClick={() => { setView("login"); setRegisterError(""); }}
                     type="button"
                   >
-                    Already have an account?
+                    Already have an account? Login
                   </button>
                 </div>
                 <div className="mt-6 flex justify-center">
